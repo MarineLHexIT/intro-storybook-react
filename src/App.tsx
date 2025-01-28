@@ -3,8 +3,6 @@ import Pomodoro from './components/Pomodoro.tsx';
 
 function App() {
 
-
-
     return (
         <>
             <Pomodoro />

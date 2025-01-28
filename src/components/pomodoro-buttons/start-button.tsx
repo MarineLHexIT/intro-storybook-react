@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from '@/components/ui/button';
 import { useCallback, useEffect, useState } from 'react';
 
 interface StartButtonProps {
@@ -8,7 +8,14 @@ interface StartButtonProps {
     onStop: () => void;
 }
 
-const StartButton = ({ onStart, onStop, isStarted = false, inProgress = false}: StartButtonProps) => {
+const StartButton = (
+    {
+        onStart,
+        onStop,
+        isStarted = false,
+        inProgress = false,
+        ...buttonProps
+    }: StartButtonProps & ButtonProps) => {
 
     const [paused, setPaused] = useState<boolean>(!inProgress);
     const onClick = useCallback(() => {
@@ -26,7 +33,7 @@ const StartButton = ({ onStart, onStop, isStarted = false, inProgress = false}: 
         setPaused(!inProgress);
     }, [inProgress]);
 
-    return <Button onClick={onClick}>
+    return <Button { ...buttonProps } onClick={ onClick }>
         {
             paused ? (isStarted ? "Resume" : "Start") : "Pause"
         }
