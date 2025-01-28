@@ -1,17 +1,17 @@
 import { Button } from '@/components/ui/button.tsx';
-import { PomodoroTimerAction } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
+import { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
 
 interface ResetButtonProps {
-    action: PomodoroTimerAction;
+    action: PomodoroTimerActions;
     onReset: () => void;
     disabled?: boolean;
 }
 
 const ResetButton = ({ action, onReset, disabled = false }: ResetButtonProps) => {
-    
-    type StoppedPomodoroTimerAction = Extract<PomodoroTimerAction, 'stop' | 'reset'>;
 
-    const isStoppedAction = (action: PomodoroTimerAction): action is StoppedPomodoroTimerAction => {
+    type StoppedPomodoroTimerAction = Extract<PomodoroTimerActions, 'stop' | 'reset'>;
+
+    const isStoppedAction = (action: PomodoroTimerActions): action is StoppedPomodoroTimerAction => {
         return action === 'stop' || action === 'reset';
     };
 

@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 
 /** Components */
 import { Button, ButtonProps } from '@/components/ui/button.tsx';
-import { PomodoroTimerAction } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
+import { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
 
 interface StartButtonProps {
-    action: PomodoroTimerAction;
+    action: PomodoroTimerActions;
     onStart: () => void;
     onStop: () => void;
 }

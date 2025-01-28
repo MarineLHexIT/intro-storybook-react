@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 
 const DEFAULT_WORK_TIMER = 25 * 60;
 
-export type PomodoroTimerAction = 'stop' | 'start' | 'resume' | 'pause' | 'reset';
+export type PomodoroTimerActions = 'stop' | 'start' | 'resume' | 'pause' | 'reset';
 
 interface PomodoroWorkTimerProps {
-    action : PomodoroTimerAction;
+    action : PomodoroTimerActions;
     onFinish: () => void;
     initialTimer?: number;
     objectiveTimer?: number;

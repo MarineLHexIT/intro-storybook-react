@@ -3,13 +3,13 @@ import { useState } from 'react';
 /* Components */
 import StartButton from '@/components/pomodoro-buttons/start-button.tsx';
 import ResetButton from '@/components/pomodoro-buttons/reset-button.tsx';
-import PomodoroWorkTimer, { PomodoroTimerAction } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
+import PomodoroWorkTimer, { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
 
 type PomodoroTimerType = 'work' | 'break';
 
 const Pomodoro = () => {
 
-    const [action, setAction] = useState<PomodoroTimerAction>('reset');
+    const [action, setAction] = useState<PomodoroTimerActions>('reset');
     const [pomodoroTimerType, setPomodoroTimerType] = useState<PomodoroTimerType>('work');
 
     return <>
