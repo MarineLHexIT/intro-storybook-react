@@ -12,7 +12,7 @@ interface StartButtonProps {
 
 const StartButton = (
     {
-        action,
+        action = "stop",
         onStart,
         onStop,
         ...buttonProps

@@ -5,23 +5,28 @@ export default {
     title: 'Pomodoro/Start Button',
     component: StartButton,
     tags: ['autodocs'],
+    argTypes: {
+        action: {
+            options: ['start', 'resume', 'pause', 'reset'],
+            description: 'The current action',
+            table: {
+                defaultValue: {summary: "stop"}
+            }
+        }
+    }
 };
 
 export const Default = {
+}
+
+export const StartedButton = {
     args: {
+        action: "start"
     }
 }
 
-export const InProgress = {
+export const PausedButton = {
     args: {
-        isStarted: true,
-        inProgress: true,
-    }
-}
-
-export const Paused = {
-    args: {
-        isStarted: true,
-        inProgress: false,
+        action: "pause"
     }
 }
