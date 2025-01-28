@@ -1,24 +1,44 @@
-import { Button, ButtonProps } from '@/components/ui/button';
 import { useCallback, useEffect, useState } from 'react';
 
+/** Components */
+import { Button, ButtonProps } from '@/components/ui/button.tsx';
+import { PomodoroTimerAction } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
+
 interface StartButtonProps {
-    isStarted?: boolean;
-    inProgress?: boolean;
+    action: PomodoroTimerAction;
     onStart: () => void;
     onStop: () => void;
 }
 
 const StartButton = (
     {
+        action,
         onStart,
         onStop,
-        isStarted = false,
-        inProgress = false,
         ...buttonProps
     }: StartButtonProps & ButtonProps) => {
 
-    const [paused, setPaused] = useState<boolean>(!inProgress);
+    const [paused, setPaused] = useState<boolean>(true);
+    const [actionName, setActionName] = useState<string>('');
+
+    useEffect(() => {
+        switch (action) {
+            case 'resume':
+            case 'start':
+                setActionName('Pause');
+                break;
+            case 'pause':
+                setActionName('Resume');
+                break;
+            case 'stop':
+            case 'reset':
+                setActionName('Start');
+                break;
+        }
+    }, [action])
+
     const onClick = useCallback(() => {
+
         if (paused) {
             onStart();
             setPaused(false);
@@ -29,14 +49,8 @@ const StartButton = (
         }
     }, [paused]);
 
-    useEffect(() => {
-        setPaused(!inProgress);
-    }, [inProgress]);
-
     return <Button { ...buttonProps } onClick={ onClick }>
-        {
-            paused ? (isStarted ? "Resume" : "Start") : "Pause"
-        }
+        {  actionName }
     </Button>
 };
 

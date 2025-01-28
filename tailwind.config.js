@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -56,5 +56,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: ["tailwindcss-animate"],
 }
