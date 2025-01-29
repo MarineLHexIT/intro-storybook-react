@@ -1,8 +1,8 @@
 import PomodoroTimer, { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-timer.tsx';
 
-const DEFAULT_WORK_TIMER = 25 * 60;
+const DEFAULT_WORK_TIMER = 5 * 60;
 
-interface PomodoroWorkTimerProps {
+interface PomodoroBreakTimerProps {
     action : PomodoroTimerActions;
     onFinish: () => void;
     initialTimer?: number;
@@ -14,10 +14,10 @@ const PomodoroWorkTimer = ({
                                onFinish,
                                initialTimer = 0,
                                objectiveTimer = DEFAULT_WORK_TIMER,
-                           }: PomodoroWorkTimerProps) => {
+                           }: PomodoroBreakTimerProps) => {
 
     return <>
-        <h2>Work time !</h2>
+        <h2>Break time !</h2>
         <PomodoroTimer
             initialTimer={initialTimer}
             objectiveTimer={objectiveTimer}

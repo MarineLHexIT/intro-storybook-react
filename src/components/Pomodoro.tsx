@@ -5,6 +5,7 @@ import StartButton from '@/components/pomodoro-buttons/start-button.tsx';
 import ResetButton from '@/components/pomodoro-buttons/reset-button.tsx';
 import PomodoroWorkTimer, { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import PomodoroBreakTimer from '@/components/pomodoro-timers/pomodoro-break-timer.tsx';
 
 type PomodoroTimerType = 'work' | 'break';
 
@@ -26,7 +27,10 @@ const Pomodoro = () => {
                 </>
             }
             {
-                pomodoroTimerType === 'break' && 'Time to take a break…'
+                pomodoroTimerType === 'break' && <>
+                    <PomodoroBreakTimer action={ action } onFinish={ () => setPomodoroTimerType('work') }/>
+
+                </>
             }
             </div>
             <div className="flex flex-col">
