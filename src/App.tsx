@@ -1,11 +1,14 @@
 import './App.css';
 import Pomodoro from './components/Pomodoro.tsx';
+import { ThemeProvider } from './components/theme-provider.tsx';
 
 function App() {
 
     return (
         <>
-            <Pomodoro />
+            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+                <Pomodoro />
+            </ThemeProvider>
         </>
     );
 }
