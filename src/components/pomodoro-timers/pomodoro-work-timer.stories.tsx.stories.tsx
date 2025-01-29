@@ -15,24 +15,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+    args: {
+        action: 'reset',
+        onFinish: () => {
+        }
+    }
 };
-
-export const Started: Story = {
-    args: {
-        action: "start",
-    }
-}
-
-export const Finished: Story = {
-    args: {
-        action: "start",
-        initialTimer: 60*24,
-    }
-}
-
-export const Paused: Story = {
-    args: {
-        action: "pause",
-        initialTimer: 60*15
-    }
-}

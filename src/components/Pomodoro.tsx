@@ -3,9 +3,10 @@ import { useState } from 'react';
 /* Components */
 import StartButton from '@/components/pomodoro-buttons/start-button.tsx';
 import ResetButton from '@/components/pomodoro-buttons/reset-button.tsx';
-import PomodoroWorkTimer, { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
+import PomodoroWorkTimer from '@/components/pomodoro-timers/pomodoro-work-timer.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import PomodoroBreakTimer from '@/components/pomodoro-timers/pomodoro-break-timer.tsx';
+import { PomodoroTimerActions } from '@/components/pomodoro-timers/pomodoro-timer.tsx';
 
 type PomodoroTimerType = 'work' | 'break';
 
