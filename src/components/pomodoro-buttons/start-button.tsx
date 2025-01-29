@@ -33,6 +33,7 @@ const StartButton = (
             case 'stop':
             case 'reset':
                 setActionName('Start');
+                setPaused(true);
                 break;
         }
     }, [action])

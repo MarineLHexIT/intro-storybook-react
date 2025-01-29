@@ -10,6 +10,8 @@ interface PomodoroTimerProps {
     objectiveTimer: number;
 }
 
+const SECONDS_TIME = 10;
+
 const PomodoroWorkTimer = ({
                                action,
                                onFinish,
@@ -21,6 +23,9 @@ const PomodoroWorkTimer = ({
     const [timerID, setTimerID] = useState<number|undefined>();
 
     useEffect(() => {
+
+        console.log("action : ", action);
+
         switch(action) {
             case 'start':
                 start();
@@ -48,7 +53,7 @@ const PomodoroWorkTimer = ({
     const getTimerID = () => {
         return setInterval(() => {
             setTimer((prev) => prev + 1);
-        }, 1) as unknown as number;
+        }, SECONDS_TIME) as unknown as number;
     }
 
     const start = () => {
@@ -87,8 +92,8 @@ const PomodoroWorkTimer = ({
     return <>
         <span>
             { duration.toISOTime({ suppressMilliseconds: true }) }
-        /
-        { maxDuration.toISOTime({ suppressMilliseconds: true }) }
+            &nbsp;/&nbsp;
+            { maxDuration.toISOTime({ suppressMilliseconds: true }) }
         </span>
     </>
 };
